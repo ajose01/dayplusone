@@ -6,7 +6,7 @@
 	<br />
 	Why don't you start?</h2>
 	<%= link_to 'My FIRST day!', user_path(@user), :method => :put, :class => 'btn btn-success' %>
-<% else %>
+<% elsif @user.updated_at.to_date > 1.day.ago %>
 	<h2>Awesome, you checked in on 
 	<%= @user.updated_at.strftime("%m/%d/%Y") %>
 	<br />
@@ -20,5 +20,7 @@
 		Why don't you go again?
 		<%= link_to 'Keep it going!', user_path(@user), :method => :put, :class => 'btn btn-success' %></h2>
 	<% end %>
+<% else %>
+	You missed you're check-in, don't give up, get back on track!
 <% end %>
 </div>
