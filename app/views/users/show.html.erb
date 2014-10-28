@@ -1,3 +1,4 @@
+<div class = "col-xs-10 col-xs-offset-1 text-center">
 <%= @user.email %>
 <br />
 <% if @user.check_in.blank? %>
@@ -6,10 +7,18 @@
 	Why don't you start?
 	<%= link_to 'My FIRST day!', user_path(@user), :method => :put %>
 <% else %>
-	You have started the last time was
-	<%= @user.updated_at %>
+	Awesome, you checked in on 
+	<%= @user.updated_at.strftime("%m/%d/%Y") %>
 	<br />
-	You've got <%= @user.check_in %> days of a streak!
-	Why don't you go again?
-	<%= link_to 'Keep it going!', user_path(@user), :method => :put %>
+	You've got 
+	<div class="gradient"><h3><%= @user.check_in %></h3></div>
+	 days of a streak!
+	<% if @user.updated_at.to_date == Date.current %>
+		Good job on being strong!  Tomorrow will be ONE more day!
+	<% else %>
+		It's a new day <br />
+		Why don't you go again?
+		<%= link_to 'Keep it going!', user_path(@user), :method => :put %>
+	<% end %>
 <% end %>
+</div>
