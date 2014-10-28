@@ -1,0 +1,15 @@
+<%= @user.email %>
+<br />
+<% if @user.check_in.blank? %>
+	You haven't started.
+	<br />
+	Why don't you start?
+	<%= link_to 'My FIRST day!', user_path(@user), :method => :put %>
+<% else %>
+	You have started the last time was
+	<%= @user.updated_at %>
+	<br />
+	You've got <%= @user.check_in %> days of a streak!
+	Why don't you go again?
+	<%= link_to 'Keep it going!', user_path(@user), :method => :put %>
+<% end %>
