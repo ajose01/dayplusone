@@ -2,12 +2,12 @@
 <%= @user.email %>
 <br />
 <% if @user.check_in.blank? %>
-	You haven't started.
+	<h2>You haven't started.
 	<br />
-	Why don't you start?
-	<%= link_to 'My FIRST day!', user_path(@user), :method => :put %>
+	Why don't you start?</h2>
+	<%= link_to 'My FIRST day!', user_path(@user), :method => :put, :class => 'btn btn-success' %>
 <% else %>
-	Awesome, you checked in on 
+	<h2>Awesome, you checked in on 
 	<%= @user.updated_at.strftime("%m/%d/%Y") %>
 	<br />
 	You've got 
@@ -18,7 +18,7 @@
 	<% else %>
 		It's a new day <br />
 		Why don't you go again?
-		<%= link_to 'Keep it going!', user_path(@user), :method => :put %>
+		<%= link_to 'Keep it going!', user_path(@user), :method => :put, :class => 'btn btn-success' %></h2>
 	<% end %>
 <% end %>
 </div>
