@@ -6,14 +6,14 @@
 	<br />
 	Why don't you start?</h2>
 	<%= link_to 'My FIRST day!', user_path(@user), :method => :put, :class => 'btn btn-success' %>
-<% elsif @user.updated_at.to_date > 2.days.ago %>
+<% elsif @user.on_track? %>
 	<h2>Awesome, you checked in on 
 	<%= @user.updated_at.strftime("%m/%d/%Y") %>
 	<br />
 	You've got 
 	<div class="gradient"><h3><%= @user.check_in %></h3></div><h2>
 	 <h2 id="goal">days of a streak!
-	<% if @user.updated_at.to_date == Date.current %>
+	<% if @user.on_time? %>
 		Good job on being strong!  Tomorrow will be ONE more day!
 	<% else %>
 		It's a new day <br />
