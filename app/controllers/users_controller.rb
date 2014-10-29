@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!
+before_action :verify_user
 
 	def show
 		@user = User.find(params[:id])
@@ -19,6 +20,14 @@ private
 		@user.check_in = @user.check_in.to_i + 1
 		@user.save
 	end
+
+	def verify_user
+		@user = User.find(params[:id])
+		unless current_user == @user
+			flash[:alert] = "You are not authorized to access this page"
+			redirect_to user_path(current_user)
+	end
+end
 
 
 
