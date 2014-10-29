@@ -1,12 +1,10 @@
 class StaticPagesController < ApplicationController
-include Hsv
-
-
 
 
 	def index
-		
-
+		if current_user.present?
+			redirect_to user_path(current_user)
+		end
 	end
 
 
