@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
 
 
   def on_track?
-  	self.updated_at.to_date > 2.days.ago
+  	self.last_date.to_date > 2.days.ago
   end
 
   def on_time?
-  	self.updated_at.to_date == Date.current
+  	self.last_date.to_date == Date.current
   end
 
 

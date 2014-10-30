@@ -8,7 +8,7 @@
 	<%= link_to 'My FIRST day!', user_path(@user), :method => :put, :class => 'btn btn-success' %>
 <% elsif @user.on_track? %>
 	<h2>Awesome, you checked in on 
-	<%= @user.updated_at.strftime("%m/%d/%Y") %>
+	<%= Date.parse(@user.last_date).strftime("%m/%d/%Y") %>
 	<br />
 	You've got 
 	<div class="gradient"><h3><%= @user.check_in %></h3></div><h2>

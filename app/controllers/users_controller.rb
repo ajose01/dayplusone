@@ -18,6 +18,7 @@ private
 
 	def counter
 		@user.check_in = @user.check_in.to_i + 1
+		@user.last_date = Date.current
 		@user.save
 	end
 

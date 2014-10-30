@@ -12,7 +12,7 @@ module Hsv
 		  r, g, b = p, q, v if h_i==3
 		  r, g, b = t, p, v if h_i==4
 		  r, g, b = v, p, q if h_i==5
-		  color = [(r * 256).to_i, (g * 256).to_i, (b * 256).to_i]
+		[(r * 256).to_i, (g * 256).to_i, (b * 256).to_i]
 		end
 
 	end
